@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>The Reimbursement System</title>
+  	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="css/sideNav.css">
+  <link rel="stylesheet" href="css/Style.css">
+  <script
+          src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- 	<header> -->
+<div >
+  <div class=" container-fluid p-0">
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand"  href="#"> <i
+       			 class='fa-solid fa-money-bill' style='color: orange'></i>Revature Bank
+            </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+              data-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-align-right text-light"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="mr-auto"></div>
+        <ul class="navbar-nav">
+          <li class="nav-item active"><a class="nav-link"
+                                         href="employee_account.html">ACCOUNT <span class="sr-only">(current)</span>
+          </a></li>
+          <li  class="nav-item"><a class="nav-link" href="admin_updateEmpoyee.html">Admin Panel</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+<!-- 	</header> -->
+<main>
+  <!-- SideNav -->
+  <div id="viewport">
+    <div class="sidebarLib">
+      <header>
+        <a href="employee_account.html">Admin Dashboard</a>
+      </header>
+      <ul class="nav lib">
+        <li><a href="employee_account.html"> <i
+                class="zmdi zmdi-view-dashboard"></i> Account
+        </a></li>
+        <li ><a href="admin_updateEmployee.html"> <i
+                class="zmdi zmdi-widgets"></i> Manage Users
+        </a></li>
+        <li ><a href="admin_manage_requests.html"> <i
+                class="zmdi zmdi-widgets"></i> Manage Requests
+        </a></li>
+        <li><a href="#" onclick="logout()"> <i
+                class="ace-icon fa fa-power-off"></i> Logout
+        </a></li>
+      </ul>
+    </div>
+    <div id="contentSideBar">
+      <div class="container mt-2 mb-4">
+        <div class="col-sm-14 ml-auto mr-auto">
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active">
+              <div class="col-md-12 border border-primary shadow rounded pt-2">
+                <form method="post" id="searchAccount">
+                  <div class="form-group" >
+                    <label class="font-weight-bold">User Name <span
+                            class="text-danger">*</span></label> <input type="text"
+                                                                        name="username" id="searchUserByUserName"
+                                                                        class="form-control" placeholder="Choose your user name" required>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-block btn-primary" type="submit">
+                      <i class="ace-icon fa fa-check bigger-110"></i> Search Account
+                    </button>
+                  </div>
+                </form>
+                <br><hr>
+                <form method="post" id="updateAccount">
+                  <div class="form-group" >
+                    <label class="font-weight-bold">User ID <span
+                            class="text-danger">*</span></label> <input type="text"
+                                                                        name="user_id" id="user_id"
+                                                                        class="form-control"  disabled>
+                  </div>
+                  <div class="form-group" >
+                    <label class="font-weight-bold">UserName <span
+                            class="text-danger">*</span></label> <input type="text"
+                                                                        name="username" id="username"
+                                                                        class="form-control" placeholder="Choose your user name" required>
+                    <div class="text-danger">
+                      <em>This will be your login name!</em>
+                    </div>
+                  </div>
+                  <div class="form-group" >
+                    <label class="font-weight-bold">Password <span
+                            class="text-danger">*</span></label> <input type="password"
+                                                                        name="password" id="password"
+                                                                        class="form-control" placeholder="***********"
+                                                                        pattern="^\S{6,}$"
+                                                                        required >
+                  </div>
+                  <div class="form-group" >
+                    <label class="font-weight-bold">First Name <span
+                            class="text-danger">*</span></label> <input type="text"
+                                                                        name="firstname" id="firstname"
+                                                                        class="form-control" placeholder="Enter Your First Name" required>
+                  </div>
+                  <div class="form-group" >
+                    <label class="font-weight-bold">Last Name <span
+                            class="text-danger">*</span></label> <input type="text"
+                                                                        name="lastname" id="lastname"
+                                                                        class="form-control" placeholder="Enter Your Last Name" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="font-weight-bold">Email <span
+                            class="text-danger">*</span></label> <input type="email"
+                                                                        name="email" id="email" class="form-control"
+                                                                        placeholder="Enter valid email" required>
+                  </div>
+                  <div class="form-group" >
+                    <label class="font-weight-bold">userRole <span
+                            class="text-danger">*</span></label>
+                    <select name="userRole" id="userRole">
+                      <option value="EMPLOYEE">EMPLOYEE</option>
+                      <option value="MANAGER">MANAGER</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-block btn-primary" type="submit">
+                      <i class="ace-icon fa fa-check bigger-110"></i> Update Account
+                    </button>
+                  </div>
+                </form>
+                <br><hr>
+                <!--                Current Managed Emp Requests-->
+                <div>
+                  <h3>User Requests</h3>
+                  <table class="table table-striped table-dark table-boarded">
+                    <thead>
+                    <tr>
+                      <th scope="col">Request ID</th>
+                      <th scope="col">Amount</th>
+                      <th scope="col">Date Submitted</th>
+                      <th scope="col">Date Resolved</th>
+                      <th scope="col">Description</th>
+                      <th scope="col">Resolved BY</th>
+                      <th scope="col">Type</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody id="showAllCurrentManagedReqTable">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+<script src="js/admin_updateEmpoyee.js"></script>
+
+</div>
+</body>
+</html>
